@@ -18,19 +18,19 @@ def move_goose(front, goose_surf, goose_rect, goose_pos):
         goose_rect = goose_surf.get_rect(center=tuple(goose_pos))
     elif front == 1:
         image = ''
-        goose_pos[1] = goose_pos[1] - 1
+        goose_pos[1] = goose_pos[1] - 2
         goose_rect = goose_surf.get_rect(center=tuple(goose_pos))
     elif front == 2:
         image = ''
-        goose_pos[1] = goose_pos[1] + 1
+        goose_pos[1] = goose_pos[1] + 2
         goose_rect = goose_surf.get_rect(center=tuple(goose_pos))
     elif front == 3:
         image = ''
-        goose_pos[0] = goose_pos[0] - 1
+        goose_pos[0] = goose_pos[0] - 2
         goose_rect = goose_surf.get_rect(center=tuple(goose_pos))
     elif front == 4:
         image = ''
-        goose_pos[0] = goose_pos[0] + 1
+        goose_pos[0] = goose_pos[0] + 2
         goose_rect = goose_surf.get_rect(center=tuple(goose_pos))
     return goose_surf, goose_rect, goose_pos
 
@@ -46,10 +46,9 @@ def move(event: pg.event.poll(), front_move, front):
             front = 3
         elif event.unicode == 'd' or event.unicode == 'D':
             front = 4
-        else:
-            front = 0
     if event.type == pg.KEYUP:
         front_move = False
+        front = 0
     return front, front_move
 
 
