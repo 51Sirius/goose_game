@@ -5,12 +5,25 @@ second_color = (0, 184, 169)
 third_color = (246, 65, 108)
 four_color = (255, 222, 125)
 display_size = (1000, 600)
-goose_surf = pg.image.load('goose/forward1.png')
-goose_rect = goose_surf.get_rect(center=(15, 570))
 display = pg.display.set_mode(display_size)
 pg.init()
 clock = pg.time.Clock()
 pg.display.set_caption('Goose Game')
+
+
+def move_goose(front, goose_surf, goose_rect):
+    if front == 0:
+        image = ''
+        goose_rect = goose_surf.get_rect(center=(40, 570))
+    elif front == 1:
+        image = ''
+    elif front == 2:
+        image = ''
+    elif front == 3:
+        image = ''
+    elif front == 4:
+        image = ''
+    return goose_surf, goose_rect
 
 
 def move(event: pg.event.poll()):
@@ -28,6 +41,10 @@ def move(event: pg.event.poll()):
 
 
 def start_game():
+    goose_position = [15, 570]
+    start_position = tuple(goose_position)
+    goose_surf = pg.image.load('goose/forward1.png')
+    goose_rect = goose_surf.get_rect(center=start_position)
     show_menu = True
     while show_menu:
         event = pg.event.poll()
@@ -36,6 +53,7 @@ def start_game():
         display.fill(first_color)
         display.blit(goose_surf, goose_rect)
         front = move(event)
+        goose_surf, goose_rect = move_goose(front, goose_surf, goose_rect)
         pg.display.update()
         clock.tick(60)
 
