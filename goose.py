@@ -16,13 +16,13 @@ pg.display.set_caption('Goose Game')
 def move(event: pg.event.poll()):
     front = 0
     if event.type == pg.KEYDOWN:
-        if event.unicocde == 'w':
+        if event.unicocde == 'w' or event.unicocde == 'W':
             front = 1
-        elif event.unicocde == 's':
+        elif event.unicocde == 's' or event.unicocde == 'S':
             front = 2
-        elif event.unicocde == 'a':
+        elif event.unicocde == 'a' or event.unicocde == 'A':
             front = 3
-        elif event.unicocde == 'd':
+        elif event.unicocde == 'd' or event.unicocde == 'D':
             front = 4
     return front
 
