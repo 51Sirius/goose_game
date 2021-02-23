@@ -13,6 +13,20 @@ clock = pg.time.Clock()
 pg.display.set_caption('Goose Game')
 
 
+def move(event: pg.event.poll()):
+    front = 0
+    if event.type == pg.KEYDOWN:
+        if event.unicocde == 'w':
+            front = 1
+        elif event.unicocde == 's':
+            front = 2
+        elif event.unicocde == 'a':
+            front = 3
+        elif event.unicocde == 'd':
+            front = 4
+    return front
+
+
 def start_game():
     show_menu = True
     while show_menu:
@@ -21,6 +35,7 @@ def start_game():
             exit()
         display.fill(first_color)
         display.blit(goose_surf, goose_rect)
+        front = move(event)
         pg.display.update()
         clock.tick(60)
 
