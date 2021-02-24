@@ -13,24 +13,22 @@ pg.display.set_caption('Goose Game')
 
 def move_goose(front, goose_surf, goose_rect, goose_pos):
     if front == 0:
-        image = ''
         goose_surf = pg.image.load('goose/stop1.png')
         goose_rect = goose_surf.get_rect(center=tuple(goose_pos))
     elif front == 1:
-        image = ''
         goose_surf = pg.image.load('goose/forward1.png')
         goose_pos[1] = goose_pos[1] - 2
         goose_rect = goose_surf.get_rect(center=tuple(goose_pos))
     elif front == 2:
-        image = ''
+        goose_surf = pg.image.load('goose/forward_down1.png')
         goose_pos[1] = goose_pos[1] + 2
         goose_rect = goose_surf.get_rect(center=tuple(goose_pos))
     elif front == 3:
-        image = ''
+        goose_surf = pg.image.load('goose/left1.png')
         goose_pos[0] = goose_pos[0] - 2
         goose_rect = goose_surf.get_rect(center=tuple(goose_pos))
     elif front == 4:
-        image = ''
+        goose_surf = pg.image.load('goose/right1.png')
         goose_pos[0] = goose_pos[0] + 2
         goose_rect = goose_surf.get_rect(center=tuple(goose_pos))
     return goose_surf, goose_rect, goose_pos
