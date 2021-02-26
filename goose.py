@@ -12,7 +12,7 @@ pg.display.set_caption('Goose Game')
 
 
 class Font:
-    def __init__(self, x, y, font_color=(0, 0, 0), font_size=30, font_type='',
+    def __init__(self, x, y, font_color=(0, 0, 0), font_size=30, font_type='main.ttf',
                  message=None):
         self.x = x
         self.y = y
@@ -28,6 +28,12 @@ class Font:
         else:
             text = font_type.render(self.message, True, self.font_color)
         display.blit(text, (self.x, self.y))
+
+
+def draw_border():
+    width = 10
+    left_line = pg.draw.line(display, second_color, (0, 0), (0, 600))
+    right_line = pg.draw.line(display, second_color, (0, 0), (0, 600))
 
 
 def move_goose(front, goose_surf, goose_rect, goose_pos):
@@ -85,6 +91,7 @@ def start_game():
         display.fill(first_color)
         display.blit(goose_surf, goose_rect)
         front, front_move = move(event, front_move, front)
+        draw_border()
         goose_surf, goose_rect, goose_position = move_goose(front, goose_surf, goose_rect, goose_position)
         pg.display.update()
         clock.tick(60)
