@@ -11,6 +11,25 @@ clock = pg.time.Clock()
 pg.display.set_caption('Goose Game')
 
 
+class Font:
+    def __init__(self, x, y, font_color=(0, 0, 0), font_size=30, font_type='',
+                 message=None):
+        self.x = x
+        self.y = y
+        self.font_color = font_color
+        self.font_type = font_type
+        self.font_size = font_size
+        self.message = message
+
+    def draw_text(self, ms=None):
+        font_type = pg.font.Font(self.font_type, self.font_size)
+        if ms is not None:
+            text = font_type.render(ms, True, self.font_color)
+        else:
+            text = font_type.render(self.message, True, self.font_color)
+        display.blit(text, (self.x, self.y))
+
+
 def move_goose(front, goose_surf, goose_rect, goose_pos):
     if front == 0:
         goose_surf = pg.image.load('goose/stop1.png')
