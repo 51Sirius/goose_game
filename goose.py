@@ -32,8 +32,8 @@ class Font:
 
 def draw_border():
     width = 10
-    left_line = pg.draw.line(display, second_color, (0, 0), (0, 600))
-    right_line = pg.draw.line(display, second_color, (0, 0), (0, 600))
+    left_line = pg.draw.line(display, second_color, [4, 550], [4, 600], width)
+    right_line = pg.draw.line(display, second_color, [995, 550], [995, 600], width)
 
 
 def move_goose(front, goose_surf, goose_rect, goose_pos):
